@@ -1,3 +1,88 @@
+  <style>
+    .top-bar {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #f0f0f0;
+    justify-content: space-between;
+}
+
+
+.logo {
+    font-weight: bold;
+    font-size: 28px;
+    color: #333;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-height: 40px;
+    max-width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    width: 40%;
+    margin: 0 20px;
+    position: relative;
+}
+
+.search-bar input {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+}
+
+.menu-container {
+    background-color: #f0f0f0;
+    padding: 0 40px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+  </style>
+  
   <!-- Barra superior com informação de parcelamento -->
     <div class="top-bar">
         PARCELAMENTO EM 6X SEM JUROS

@@ -33,6 +33,7 @@ class CategoryController extends Controller
 public function show($categorySlug) {
     $category = Category::where('slug', $categorySlug)->firstOrFail();
     $products = $category->products();
+    $maisVendidos = Product::whereIn('id', [1, 4, 7, 10, 13, 16])->get();
     $info = [
         ['title' => $category->info1_title, 'content' => $category->info1],
         ['title' => $category->info2_title, 'content' => $category->info2],
@@ -44,6 +45,7 @@ public function show($categorySlug) {
     return view('category.show', [
         'category' => $category,
         'products' => $products,
+        'maisVendidos' => $maisVendidos,  
         'info' => $info,
         'onlyOneInfo' => $onlyOneInfo,
         'breadcrumbs' => [

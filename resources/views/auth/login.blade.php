@@ -33,7 +33,7 @@
 
           <button type="submit" class="form-button">ENTRAR</button>
 
-          {{$errors}}
+          <!-- {{$errors}} -->
 
           <p class="cadastro-link">Não tem uma conta? <a href="/register">Inscreva-se</a></p>
         </form>
