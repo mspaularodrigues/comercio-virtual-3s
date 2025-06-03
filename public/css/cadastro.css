@@ -1,0 +1,294 @@
+/* Resetando estilos padrão com abordagem moderna */
+:root {
+  --primary: #ff6b6b;
+  --primary-light: #ffd8d8;
+  --primary-dark: #ff4d4d;
+  --text: #333333;
+  --text-light: #777777;
+  --background: #fff5f5;
+  --white: #ffffff;
+  --black: #000000;
+  --border-radius-sm: 8px;
+  --border-radius-md: 14px;
+  --border-radius-lg: 20px;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Seção do formulário */
+.form-section {
+  width:80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  overflow-y: auto; /* Permite rolagem se o conteúdo for muito alto */
+}
+
+.form-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem 2.5rem;
+  border-radius: var(--border-radius-md);
+  background-color: transparent;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.titulo-cadastro {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.titulo-cadastro::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.campos-cadastro {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--black);
+  letter-spacing: 0.3px;
+  transition: var(--transition);
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: var(--primary-light);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-lg);
+  font-size: 1rem;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.2);
+}
+
+.form-input::placeholder {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-light);
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+
+.form-button {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 999px; /* Borda super arredondada */
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: var(--space-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-dark);
+  transition: all var(--transition-normal);
+  z-index: -1;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.form-button:hover::before {
+  left: 0;
+}
+
+.form-button:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
+}
+
+
+
+/* Seção da imagem */
+.image-section {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.image-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), transparent);
+  z-index: 1;
+}
+
+.cadastro-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: var(--transition);
+  filter: brightness(1.05);
+}
+
+/* Responsividade */
+@media (min-height: 800px) {
+  .form-container {
+    padding: 2.5rem;
+  }
+  
+  .campos-cadastro {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-input {
+    padding: 16px 20px;
+  }
+  
+  .form-button {
+    padding: 16px;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+  
+  .titulo-cadastro {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .campos-cadastro {
+    margin-bottom: 0.8rem;
+  }
+  
+  .form-input {
+    padding: 10px 16px;
+  }
+  
+  .form-button {
+    padding: 12px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .form-container {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .form-section, 
+  .image-section {
+    width: 100%;
+  }
+  
+  .image-section {
+    height: 25vh;
+    order: -1;
+  }
+  
+  .form-section {
+    height: 75vh;
+  }
+  
+  .form-container {
+    max-width: 500px;
+    padding: 1.5rem 2rem;
+  }
+}
+
+/* Animações de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.campos-cadastro:nth-child(1) { animation: fadeIn 0.7s ease forwards; }
+.campos-cadastro:nth-child(2) { animation: fadeIn 0.8s ease forwards; }
+.campos-cadastro:nth-child(3) { animation: fadeIn 0.9s ease forwards; }
