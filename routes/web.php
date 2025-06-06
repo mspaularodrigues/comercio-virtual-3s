@@ -24,7 +24,7 @@ Route::post('/product', [ProductController::class, 'store']);
 Route::get('/product/{product}/edit', [ProductController::class, 'edit']);
 Route::put('/product/{product}', [ProductController::class, 'update']);
 Route::delete('/product/{product}', [ProductController::class, 'destroy']);
-Route::get('/product/{product}', [ProductController::class, 'show']);
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 
 // Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/category/create', [CategoryController::class, 'create']);
@@ -32,7 +32,7 @@ Route::post('/category', [CategoryController::class, 'store']);
 Route::get('/category/{category}/edit', [CategoryController::class, 'edit']);
 Route::put('/category/{category}', [CategoryController::class, 'update']);
 Route::delete('/category/{category}', [CategoryController::class, 'destroy']);
-Route::get('/category/{category}', [CategoryController::class, 'show']);
+Route::get('/category/{category}', [CategoryController::class, 'show'])->name('categories.show');
 });
 
 Route::get('/cart', [CartController::class, 'index']);

@@ -39,6 +39,24 @@ class ProductController extends Controller
         return redirect('/product');
     }
 
+    public function show($slug)
+{
+    $product = Product::where('slug', $slug)->firstOrFail();
+    $info = InfoProduct::where('product_id', $product->id)->first(); 
+    $category = $product->category;
+    $breadcrumbs = [
+        ['label' => 'Home', 'url' => route('dashboard')], 
+        ['label' => $category->name ?? 'Categoria', 'url' => route('categories.show', $category)],
+        ['label' => $product->name, 'url' => ''] 
+    ];
+    $produtosSimilares = Product::where('category_id', $product->category_id)
+    ->where('id', '!=', $product->id)
+    ->take(3)
+    ->get();
+
+    return view('product.show', compact('product', 'info', 'breadcrumbs', 'produtosSimilares'));
+}
+
 
 }
 

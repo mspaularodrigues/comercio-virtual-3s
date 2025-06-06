@@ -4,71 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whey 4 Protein 900g</title>
-    <link rel="stylesheet" href="css/produto.css">
+    <title>{{ $product->name }}</title>
+    <link rel="stylesheet" href="{{ asset('css/produto.css') }}">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
-    <header class="top-bar">
-        <p>PARCELAMENTO EM 6X SEM JUROS</p>
-    </header>
-
-    <nav class="main-nav">
-        <div class="logo">LOGO</div>
-        <div class="search-bar">
-            <input type="text" placeholder="O que está buscando?">
-            <button>🔍</button>
-        </div>
-        <div class="nav-icons">
-            <a href="#">Login</a>
-            <a href="#">❤️</a>
-            <a href="#">🛒</a>
-        </div>
-        <div class="menu">
-            <a href="#">MENU</a>
-            <a href="#">MENU</a>
-            <a href="#">MENU</a>
-            <a href="#">MENU</a>
-            <a href="#">MENU</a>
-        </div>
-    </nav>
-
-    <section class="banner">
-        <h1>BANNER PRODUTO</h1>
-    </section>
+   @include('partials.header')
 
     <section class="breadcrumbs">
-        <p>Home > Produtos > Proteína > Whey 4 Protein</p>
+           @foreach($breadcrumbs as $crumb)
+        @if(!$loop->last)
+            <a href="{{ $crumb['url'] }}" > {{ $crumb['label'] }}</a> &gt;
+        @else
+            <span>{{ $crumb['label'] }}</span>
+        @endif
+        @endforeach
     </section>
 
     <main class="product-page">
-        <div class="product-gallery">
-            <div class="thumbnails">
-                <img src="./img/proteina1.png" alt="Miniatura 1">
-                <img src="./img/proteina1.png" alt="Miniatura 2">
-                <img src="./img/proteina1.png" alt="Miniatura 3">
-            </div>
-            <div class="main-image">
-                <img src="./img/proteina1.png" alt="Imagem principal">
-            </div>
-        </div>
+    <div class="product-gallery">
+<div class="thumbnails">
+    @php $index = 0; @endphp
+
+    @if($product->image_url)
+        <img src="{{ $product->image_url }}" alt="Miniatura" class="thumb active" data-index="{{ $index }}">
+        @php $index++; @endphp
+    @endif
+
+    @if($product->image_url2)
+        <img src="{{ $product->image_url2 }}" alt="Miniatura" class="thumb" data-index="{{ $index }}">
+        @php $index++; @endphp
+    @endif
+
+    @if($product->image_url3)
+        <img src="{{ $product->image_url3 }}" alt="Miniatura" class="thumb" data-index="{{ $index }}">
+        @php $index++; @endphp
+    @endif
+</div>
+
+<!-- Imagem principal com bolinhas abaixo -->
+<div class="main-image-wrapper">
+    <img src="{{ $product->image_url }}" alt="Imagem principal" id="mainImage">
+    <div class="dots">
+        @for ($i = 0; $i < $index; $i++)
+            <span class="dot {{ $i === 0 ? 'active' : '' }}" data-index="{{ $i }}"></span>
+        @endfor
+    </div>
+</div>
+</div>
 
         <div class="product-info">
-            <h2>Whey 4 Protein 900g</h2>
-            <p>Ref: 00001</p>
-            <div class="rating">
-                ★★★★☆ <div id="rating-count">(148)</div>
+             <h2>{{ $product->name }}</h2>
+        <p class="ref">Ref: {{ $product->id }}</p>
+        <p class="price">R${{ number_format($product->price, 2, ',', '.') }} <span class="pix">à vista no PIX</span></p>
+        <div class="parcel">
+            <iconify-icon class="icon-parcel" icon="fluent-mdl2:payment-card" width="20" height="20"></iconify-icon>
+            <p>ou R$ {{ number_format($product->price * 1.03, 2, ',', '.') }} em até 6x de {{ number_format(($product->price * 1.03) / 6, 2, ',', '.') }} (sem juros)</p>
             </div>
-            <p class="price">R$260,00 <span class="pix">à vista no PIX</span></p>
-            <div class="parcel">
-                <iconify-icon icon="fluent-mdl2:payment-card" width="20" height="20"></iconify-icon>
-                <p>ou R$ 268,00 em até 6x de R$44,00 (sem juros)</p>
-            </div>
-
-
 
             <div class="quantity">
                 <label for="quantity">Quantidade</label>
@@ -89,27 +90,13 @@
         </div>
 
         <div class="details">
-            <p>Precisando de ajuda na manutenção e ganho de massa muscular? O Whey 4 Protein da Pro Corps é um
-                suplemento proteico de alto valor biológico que auxilia no aumento de massa muscular e na recuperação da
-                fibra muscular, sendo ideal para hipertrofia e atletas de alto desempenho. Possui em sua composição
-                quatro derivados proteicos: Proteína concentrada, isolada e hidrolisada do soro de leite e proteína
-                hidrolisada da carne, que são essenciais para o bom funcionamento do organismo. Contém um índice elevado
-                de aminoácidos (BCAA), importantes para a produção de fibras musculares.</p>
+            {!!  $product->desc  !!}
 
-            <h3>DESTAQUES</h3>
-            <ul>
-                <li>32g de Proteína por dose</li>
-                <li>5g de carboidratos por dose</li>
-                <li>7g de BCAA</li>
-                <li>WPH / WPI / WPC / Beef Protein</li>
-            </ul>
-
-            <p><strong>Modo de preparo e sugestão de consumo:</strong> Dissolver um medidor e meio (40g) em 200 ml de
-                água, bater no mixer ou liquidificador. Consumir duas porções ao dia.</p>
-
-            <p><strong>ALÉRGICOS CONTÉM DERIVADOS DE LEITE</strong></p>
+            <div>
+                <p><strong></strong></p>
             <p><strong>ESTE PRODUTO NÃO SUBSTITUI UMA ALIMENTAÇÃO EQUILIBRADA E SEU CONSUMO DEVE SER ORIENTADO POR
                     NUTRICIONISTA OU MÉDICO.</strong></p>
+            </div>
 
             <h3>AVISOS</h3>
             <ul>
@@ -121,56 +108,9 @@
         </div>
     </section>
 
-    <section class="similar-products">
-        <h2>Produtos Similares</h2>
-        <!-- produtos similares aqui -->
-    </section>
+@include('partials.similares')
 
-    <section class="reviews">
-        <h2>Avaliações</h2>
-        <!-- avaliações aqui -->
-    </section>
-
-    <footer class="footer">
-        <div class="newsletter">
-            <input type="email" placeholder="NEWSLETTER">
-        </div>
-
-        <div class="footer-info">
-            <div class="contact">
-                <h4>Fale Conosco</h4>
-                <p>0800 1010</p>
-                <p>instagram@email.com</p>
-                <p>(11) 2345-6789</p>
-            </div>
-
-            <div class="schedule">
-                <h4>Horário de atendimento</h4>
-                <p>Seg a Qui das 08h às 18h</p>
-                <p>Sex e Sáb das 08h às 17h</p>
-            </div>
-
-            <div class="institutional">
-                <h4>Institucional</h4>
-                <p>Política de Privacidade</p>
-                <p>Política de Frete</p>
-                <p>Termos e Condições</p>
-            </div>
-
-            <div class="social-media">
-                <h4>Siga nossas redes sociais</h4>
-                <p>📷 🎥 👍 🐦</p>
-            </div>
-        </div>
-
-        <div class="payments">
-            <p>Formas de Pagamento: Visa, MasterCard, Pix</p>
-        </div>
-
-        <div class="address">
-            <p>Endereço: Avenida Tal, 1800 - São Paulo, SP - CEP: 01234-005 - CNPJ: 01.234.567/0008-10</p>
-        </div>
-    </footer>
+@include('partials.footer')
 
     <script>
         const tabs = document.querySelectorAll('.tabs button');
@@ -179,68 +119,56 @@
         // Conteúdos diferentes
         const contents = {
     detalhes: `
-        <p>Precisando de ajuda na manutenção e ganho de massa muscular? O Whey 4 Protein da Pro Corps é um
-            suplemento proteico de alto valor biológico que auxilia no aumento de massa muscular e na recuperação da
-            fibra muscular, sendo ideal para hipertrofia e atletas de alto desempenho. Possui em sua composição
-            quatro derivados proteicos: Proteína concentrada, isolada e hidrolisada do soro de leite e proteína
-            hidrolisada da carne, que são essenciais para o bom funcionamento do organismo. Contém um índice elevado
-            de aminoácidos (BCAA), importantes para a produção de fibras musculares.</p>
+     {!!  $product->desc  !!}
 
-        <h3>DESTAQUES</h3>
-        <ul>
-            <li>32g de Proteína por dose</li>
-            <li>5g de carboidratos por dose</li>
-            <li>7g de BCAA</li>
-            <li>WPH / WPI / WPC / Beef Protein</li>
-        </ul>
+         <div>
+                <p><strong></strong></p>
+            <p><strong>ESTE PRODUTO NÃO SUBSTITUI UMA ALIMENTAÇÃO EQUILIBRADA E SEU CONSUMO DEVE SER ORIENTADO POR
+                    NUTRICIONISTA OU MÉDICO.</strong></p>
+            </div>
 
-        <p><strong>Modo de preparo e sugestão de consumo:</strong> Dissolver um medidor e meio (40g) em 200 ml de
-            água, bater no mixer ou liquidificador. Consumir duas porções ao dia.</p>
-
-        <p><strong>ALÉRGICOS CONTÉM DERIVADOS DE LEITE</strong></p>
-        <p><strong>ESTE PRODUTO NÃO SUBSTITUI UMA ALIMENTAÇÃO EQUILIBRADA E SEU CONSUMO DEVE SER ORIENTADO POR
-                NUTRICIONISTA OU MÉDICO.</strong></p>
+            <h3>AVISOS</h3>
+            <ul>
+                <li>Idade mínima recomendada: 18 anos</li>
+                <li>Consulte um médico antes do uso</li>
+                <li>Este produto é um suplemento dietético, não um medicamento. Suplementa dietas insuficientes.
+                    Consulte o seu médico e/ou farmacêutico.</li>
+            </ul>
     `,
     informacoes: `
-        <h3>INFORMAÇÕES NUTRICIONAIS</h3>
+        <h3>INFORMAÇÕES ADICIONAIS</h3>
         <table class="info-table">
-            <thead>
-                <tr>
-                    <th>Componente</th>
-                    <th>Quantidade por porção</th>
-                </tr>
-            </thead>
             <tbody>
                 <tr>
-                    <td>Valor Energético</td>
-                    <td>160 kcal</td>
+                    <td>Ingredientes</td>
+                    <td>{{ $info->ingredientes }}</td>
                 </tr>
                 <tr>
-                    <td>Proteínas</td>
-                    <td>32g</td>
+                    <td>Recomendação de uso</td>
+                    <td>{{ $info->recomendacao_uso }}</td>
                 </tr>
                 <tr>
-                    <td>Carboidratos</td>
-                    <td>5g</td>
+                    <td>Modo de preparo</td>
+                    <td>{{ $info->modo_preparo }}</td>
                 </tr>
                 <tr>
-                    <td>Gorduras Totais</td>
-                    <td>2g</td>
+                    <td>Advertências</td>
+                    <td>{{ $info->advertencia }}</td>
                 </tr>
                 <tr>
-                    <td>Gorduras Saturadas</td>
-                    <td>1g</td>
+                    <td>Alergênicos</td>
+                    <td>{{ $info->alergenicos }}</td>
                 </tr>
                 <tr>
-                    <td>Sódio</td>
-                    <td>120mg</td>
+                    <td>Tamanho</td>
+                    <td>{{ $info->tamanho }}</td>
                 </tr>
             </tbody>
         </table>
     `
 };
     
-        // Evento de clique nos botões
+        // Evento de clique nos botões de informação
         tabs.forEach((tab, index) => {
             tab.addEventListener('click', () => {
                 // Atualiza a classe "active"
@@ -255,6 +183,86 @@
                 }
             });
         });
+
+        //seleção de miniatura
+         document.querySelectorAll('.thumb').forEach(thumb => {
+    thumb.addEventListener('click', function () {
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = this.src;
+        mainImage.alt = this.alt;
+
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+//ativando os botões de quantidade
+document.addEventListener("DOMContentLoaded", function () {
+        const quantityInput = document.getElementById("quantity");
+        const buttons = document.querySelectorAll(".btn-quantity");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                // Evita múltiplos cliques rápidos
+                button.disabled = true;
+
+                let current = parseInt(quantityInput.value) || 1;
+
+                if (this.textContent === "+" || this.innerText === "+") {
+                    quantityInput.value = current + 1;
+                } else if (this.textContent === "-" || this.innerText === "-") {
+                    if (current > 1) {
+                        quantityInput.value = current - 1;
+                    }
+                }
+
+                // Reativa o botão após um pequeno delay
+                setTimeout(() => {
+                    button.disabled = false;
+                }, 200); // 200ms de debounce
+            });
+        });
+    });
+
+    //paginadores da galeria
+     document.addEventListener("DOMContentLoaded", function () {
+        const thumbnails = document.querySelectorAll(".thumb");
+        const mainImage = document.getElementById("mainImage");
+        const dots = document.querySelectorAll(".dot");
+
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener("click", () => {
+                mainImage.src = thumb.src;
+
+                // Atualizar miniatura ativa
+                thumbnails.forEach(t => t.classList.remove("active"));
+                thumb.classList.add("active");
+
+                // Atualizar bolinha ativa
+                dots.forEach(dot => dot.classList.remove("active"));
+                dots[index].classList.add("active");
+            });
+        });
+
+        dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        // Troca a imagem principal
+        const thumb = thumbnails[index];
+        if (thumb) {
+            mainImage.src = thumb.src;
+            mainImage.alt = thumb.alt;
+
+            // Atualiza miniaturas
+            thumbnails.forEach(t => t.classList.remove("active"));
+            thumb.classList.add("active");
+
+            // Atualiza bolinhas
+            dots.forEach(d => d.classList.remove("active"));
+            dot.classList.add("active");
+        }
+    });
+});
+    });
     </script>
     
 
