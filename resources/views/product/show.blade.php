@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <link href="https://cdn.materialdesignicons.com/6.6.96/css/materialdesignicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
@@ -71,14 +73,35 @@
             <p>ou R$ {{ number_format($product->price * 1.03, 2, ',', '.') }} em até 6x de {{ number_format(($product->price * 1.03) / 6, 2, ',', '.') }} (sem juros)</p>
             </div>
 
-            <div class="quantity">
+<form action="{{ route('cart.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="product_slug" value="{{ $product->slug }}">
+
+    <div class="quantity">
+        <label for="quantity">Quantidade</label>
+        <button type="button" class="btn-quantity" onclick="changeQuantity(-1)">-</button>
+        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <button type="button" class="btn-quantity" onclick="changeQuantity(1)">+</button>
+    </div>
+
+    <button type="submit" class="add-to-cart">Adicionar ao Carrinho</button>
+</form>
+
+<!-- <div class="quantity">
                 <label for="quantity">Quantidade</label>
                 <button class="btn-quantity">-</button>
                 <input type="number" id="quantity" value="1" min="1">
                 <button class="btn-quantity">+</button>
             </div>
 
-            <button class="add-to-cart">Adicionar ao Carrinho</button>
+<form action="{{ route('cart.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="product_slug" value="{{ $product->slug }}">
+    <button type="submit" class="add-to-cart">Adicionar ao Carrinho</button>
+</form>  -->
+
+
+                   
         </div>
     </main>
 
@@ -263,6 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
     });
+
     </script>
     
 

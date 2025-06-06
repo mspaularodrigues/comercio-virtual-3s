@@ -11,6 +11,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<link href="https://cdn.materialdesignicons.com/6.6.96/css/materialdesignicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -32,12 +34,6 @@
   @endforeach
   </div>
 
-  <!-- Filtros -->
-<div class="filtros">
-    <button>Filtrar <span class="mage--filter"></span></button>
-    <button>Ordenar por</button>
-  </div> 
-
   <!-- Cards de produtos -->
   <section class="produtos">
   @forelse($category->products as $product)
@@ -46,7 +42,7 @@
       <h4>{{ $product->name }}</h4>
       <p>R$ {{ number_format($product->price, 2, ',', '.') }}</p>
       <small>Até 6x de R$ {{ number_format($product->price / 6, 2, ',', '.') }}</small>
-      <a href="{{ url('/produto/' . $product->slug) }}">
+      <a href="{{ url('/product/' . $product->slug) }}">
         <button class="btn-ver-produto">Ver Produto</button>
       </a>
     </div>

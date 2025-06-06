@@ -1,7 +1,4 @@
-{{ Auth::user()->name }}
-
-{{ Auth::user()->attributes }}
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -10,68 +7,50 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.materialdesignicons.com/6.6.96/css/materialdesignicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
-    <!-- Barra superior com informação de parcelamento -->
-    <div class="top-bar">
-        PARCELAMENTO EM 6X SEM JUROS
+    @include('partials.header')
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('img/home1.webp') }}" class="d-block w-100" alt="Imagem Home 1">
     </div>
-    
-    <!-- Cabeçalho -->
-    <div class="header">
-        
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo da empresa">
-            </div>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="O que está buscando?">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-            </button>
-        </div>
-        
-        <div class="user-actions">
-            <a href="#" title="Login">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                </svg>
-                Login
-            </a>
-            <a href="#" title="Favoritos">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                </svg>
-            </a>
-            <a href="#" title="Carrinho">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>
-            </a>
-        </div>
+    <div class="carousel-item">
+      <img src="{{ asset('img/home2.webp') }}" class="d-block w-100" alt="Imagem Home 2">
     </div>
-    
-    <!-- Menu de navegação -->
-    <div class="menu-container">
-        <div class="menu-item">MENU</div>
-        <div class="menu-item">MENU</div>
-        <div class="menu-item">MENU</div>
-        <div class="menu-item">MENU</div>
-        <div class="menu-item">MENU</div>
-        <div class="menu-item">MENU</div>
+    <div class="carousel-item">
+      <img src="{{ asset('img/home3.webp') }}" class="d-block w-100" alt="Imagem Home 3">
     </div>
-    
- 
-    <div class="carousel">
-        <h2>Carrossel </h2>
-    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Próximo</span>
+  </button>
+</div>
+
+
     
     <!-- Seção de benefícios -->
     <div class="benefits">
@@ -102,69 +81,21 @@
         </div>
     </div>
     
-    <!-- Seção de produtos mais vendidos -->
-    <h2 class="section-title">Produtos mais vendidos</h2>
-    <div class="products-grid">
-        <!-- Produto 1 -->
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/api/placeholder/200/200" alt="Whey 4 Protein">
-                <button class="favorite-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="product-info">
-                <div class="product-name">Whey 4 Protein</div>
-                <div class="product-rating">★★★★☆</div>
-                <div class="product-price">R$ 266,00</div>
-                <div class="product-installment">Até 6x de R$44,33</div>
-            </div>
-        </div>
-        
-        <!-- Produto 2 -->
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/api/placeholder/200/200" alt="Whey 4 Protein">
-                <button class="favorite-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="product-info">
-                <div class="product-name">Whey 4 Protein</div>
-                <div class="product-rating">★★★★☆</div>
-                <div class="product-price">R$ 266,00</div>
-                <div class="product-installment">Até 6x de R$44,33</div>
-            </div>
-        </div>
-        
-        <!-- Produto 3 -->
-        <div class="product-card">
-            <div class="product-image">
-                <img src="/api/placeholder/200/200" alt="Whey 4 Protein">
-                <button class="favorite-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="product-info">
-                <div class="product-name">Whey 4 Protein</div>
-                <div class="product-rating">★★★★☆</div>
-                <div class="product-price">R$ 266,00</div>
-                <div class="product-installment">Até 6x de R$44,33</div>
-                <form action="/cart/{{1}}" method="post">
-                    @csrf
-                <button type="submit">Adicionar ao carrinho</button>
-                </form>
-                
-            </div>
-        </div>
-    </div>
-    
+   
+    <!-- Mais Vendidos -->
+<div id="carouselCards" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-title">
+  <h4 style="font-family: 'Inter', sans-serif;">MAIS VENDIDOS</h4>
+<p class="testimonial-text">
+  Veja nossos produtos mais vendidos e conheça um pouco de sua composição. 
+  Aproveite para descobrir os diferenciais de cada produto e encontrar  
+  <strong> o que mais combina com você!</strong>
+</p>
+
+  </div>
+
+  @include('partials.mais-vendidos')
+
     <!-- Carrossel -->
 @include('partials.destaques', ['destaques' => $destaques])
 
@@ -173,98 +104,31 @@
     <div class="testimonials">
         <!-- Depoimento 1 -->
         <div class="testimonial-card">
-            <div class="testimonial-text">Melhor loja, alta produtos de alta qualidade e preços acessíveis.</div>
-            <div class="testimonial-author">Ana Santos</div>
+            <div class="testimonial-text"> “O atendimento foi impecável! Fui muito bem atendida, com atenção e rapidez nas respostas. Recomendo muito!”</div>
+            <div class="testimonial-author">Guilherme Ferreira</div>
         </div>
         
         <!-- Depoimento 2 -->
         <div class="testimonial-card">
-            <div class="testimonial-text">Melhor loja, alta produtos de alta qualidade e preços acessíveis.</div>
+            <div class="testimonial-text">“Rápidos, educados e muito eficientes! O atendimento fez toda a diferença na minha escolha, sensacional e irei comprar mais vezes!”</div>
             <div class="testimonial-author">Ana Santos</div>
         </div>
         
         <!-- Depoimento 3 -->
         <div class="testimonial-card">
-            <div class="testimonial-text">Melhor loja, alta produtos de alta qualidade e preços acessíveis.</div>
-            <div class="testimonial-author">Ana Santos</div>
+            <div class="testimonial-text"> “Equipe super atenciosa e prestativa. Tiraram todas as minhas dúvidas e me ajudaram a escolher o melhor produto para mim.”</div>
+            <div class="testimonial-author"> Arthur Brito</div>
         </div>
     </div>
-    <!--  footer --> 
-    <div class="newsletter-bar">
-        <span>NEWSLETTER</span>
-        <div class="newsletter-input">
-            <input type="email" placeholder="">
-        </div>
-        <div class="newsletter-button">
-            <button></button>
-        </div>
-    </div>
+ 
+    
+ @include('partials.footer')
 
-    <div class="footer-content">
-        <div class="logo-section">
-            <div class="logo">
-                <img src="img/logo.png" alt="SUPLEMAX - Suplementos de Academia">
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <div class="footer-title">Fale Conosco</div>
-            <div class="footer-info">0800 1010</div>
-            <div class="contact-info">
-                <span>✉️</span>
-                <span>teste@gmail.com</span>
-            </div>
-            <div class="contact-info">
-                <span>📱</span>
-                <span>(11) 2345-6789</span>
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <div class="footer-title">Horário de atendimento</div>
-            <div class="footer-info">Seg a Qui das 08h às 18h</div>
-            <div class="footer-info">Sex e Sáb das 08h às 17h</div>
-            
-            <div class="footer-title" style="margin-top: 20px;">Formas de Pagamento</div>
-            <div class="payment-methods">
-                <div class="payment-icon">VISA</div>
-                <div class="payment-icon">MASTER</div>
-                <div class="payment-icon">AMEX</div>
-                <div class="payment-icon">PIX</div>
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <div class="footer-title">Institucional</div>
-            <div class="footer-info">Política de privacidade</div>
-            <div class="footer-info">Política de frete</div>
-            <div class="footer-info">Termos e condições</div>
-            
-            <div class="footer-title" style="margin-top: 20px;">Siga nossas redes sociais</div>
-            <div class="social-icons">
-                <div class="social-icon">📷</div>
-                <div class="social-icon">▶️</div>
-                <div class="social-icon">f</div>
-                <div class="social-icon">𝕏</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-divider"></div>
-
-    <div class="footer-bottom">
-        Endereço: Avenida Tal, 1600 - São Paulo, SP - CEP: 01234-005 - CNPJ: 01.234.567/0008-10 © Todos os direitos reservados.
-        <div class="footer-note">
-            Todas as mídias aqui veiculadas são de propriedade da SUPLEMAX. É proibida a utilização parcial ou total sem autorização prévia, sujeita a penalidade.
-        </div>
     </div>
 </body>
 
 </html>
 
-<form action="{{ route('logout') }}" method="post">
-    @csrf
-    <button type="submit">Deslogar</button>
-</form>
+
 
 
