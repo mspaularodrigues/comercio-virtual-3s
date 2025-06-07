@@ -81,6 +81,93 @@
   width: 20px;
   height: 20px;
 }
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Até 900px (tablets e menores) */
+@media (max-width: 900px) {
+  .carousel-title {
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  #carouselCards .card {
+    flex: 0 0 150px;
+    max-width: 150px;
+  }
+
+  #carouselCards .card-img-top {
+    max-width: 70%;
+  }
+
+  #carouselCards .card-title {
+    font-size: 14px;
+  }
+
+  #carouselCards .card-text {
+    font-size: 13px;
+  }
+
+  #carouselCards .btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  #carouselCards .carousel-control-prev,
+  #carouselCards .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  #carouselCards .carousel-control-prev-icon,
+  #carouselCards .carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Até 480px (celulares) */
+@media (max-width: 480px) {
+  .carousel-title {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  #carouselCards .card {
+    flex: 0 0 120px;
+    max-width: 120px;
+  }
+
+  #carouselCards .card-img-top {
+    max-width: 80%;
+  }
+
+  #carouselCards .card-title {
+    font-size: 13px;
+  }
+
+  #carouselCards .card-text {
+    font-size: 12px;
+  }
+
+  #carouselCards .btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  #carouselCards .carousel-control-prev,
+  #carouselCards .carousel-control-next {
+    width: 30px;
+    height: 30px;
+  }
+
+  #carouselCards .carousel-control-prev-icon,
+  #carouselCards .carousel-control-next-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
 </style>
 
 <div id="carouselCards" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true">

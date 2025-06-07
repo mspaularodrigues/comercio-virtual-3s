@@ -86,21 +86,6 @@
 
     <button type="submit" class="add-to-cart">Adicionar ao Carrinho</button>
 </form>
-
-<!-- <div class="quantity">
-                <label for="quantity">Quantidade</label>
-                <button class="btn-quantity">-</button>
-                <input type="number" id="quantity" value="1" min="1">
-                <button class="btn-quantity">+</button>
-            </div>
-
-<form action="{{ route('cart.store') }}" method="POST">
-    @csrf
-    <input type="hidden" name="product_slug" value="{{ $product->slug }}">
-    <button type="submit" class="add-to-cart">Adicionar ao Carrinho</button>
-</form>  -->
-
-
                    
         </div>
     </main>
@@ -163,27 +148,27 @@
         <table class="info-table">
             <tbody>
                 <tr>
-                    <td>Ingredientes</td>
+                    <td class="info-table-title">Ingredientes</td>
                     <td>{{ $info->ingredientes }}</td>
                 </tr>
                 <tr>
-                    <td>Recomendação de uso</td>
+                    <td class="info-table-title">Recomendação de uso</td>
                     <td>{{ $info->recomendacao_uso }}</td>
                 </tr>
                 <tr>
-                    <td>Modo de preparo</td>
+                    <td class="info-table-title">Modo de preparo</td>
                     <td>{{ $info->modo_preparo }}</td>
                 </tr>
                 <tr>
-                    <td>Advertências</td>
+                    <td class="info-table-title">Advertências</td>
                     <td>{{ $info->advertencia }}</td>
                 </tr>
                 <tr>
-                    <td>Alergênicos</td>
+                    <td class="info-table-title">Alergênicos</td>
                     <td>{{ $info->alergenicos }}</td>
                 </tr>
                 <tr>
-                    <td>Tamanho</td>
+                    <td class="info-table-title">Tamanho</td>
                     <td>{{ $info->tamanho }}</td>
                 </tr>
             </tbody>

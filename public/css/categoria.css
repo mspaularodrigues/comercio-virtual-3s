@@ -153,32 +153,69 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1800px;  /* menos largura */
-  margin: 40px auto; /* centraliza e dá uma margem em cima/baixo */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  max-width: 1800px;
+  margin: 40px auto;
   gap: 20px;
   padding: 20px;
+  width: 100%;
 }
 
 .info-container.single-info {
-    justify-content: center;  /* Centraliza a seção no meio */
-    align-items: center;      /* Alinha verticalmente */
-    max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
 }
 
 .informacao {
-  background: #fff;             /* Fundo branco */
-  border-radius: 12px;          /* Bordas arredondadas */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* Sombra suave */
-  padding: 24px 30px;           /* Espaçamento interno */
-  margin: 20px 0;               /* Espaçamento entre cards */
-  max-width: 700px;             /* Largura máxima para limitar o tamanho */
+  background: #fff;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 24px 30px;
+  margin: 20px auto;        /* Centraliza o card */
+  max-width: 700px;
+  width: 100%;              /* Garante adaptação em telas pequenas */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .informacao:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
+/* Telas menores que 1200px */
+@media (max-width: 1200px) {
+  .informacao {
+    font-size: 1.1rem;
+    padding: 20px 24px;
+    max-width: 900px;
+  }
+}
+
+/* Telas menores que 900px */
+@media (max-width: 900px) {
+  .info-container {
+    flex-direction: column;  /* Empilha os cards */
+    align-items: center;     /* Centraliza horizontalmente */
+  }
+
+  .informacao {
+    font-size: 1rem;
+    padding: 18px 20px;
+    max-width: 90%;
+  }
+}
+
+/* Telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+  .informacao {
+    font-size: 0.95rem;
+    padding: 16px 18px;
+  }
+}
+
 
 .informacao h3 {
   color: #b02323d5;          
@@ -258,3 +295,97 @@ body {
   width: 20px;
   height: 20px;
 }
+
+/* Telas menores que 1200px */
+@media (max-width: 1200px) {
+  .informacao {
+    font-size: 1.1rem;
+    padding: 20px 24px;
+    max-width: 900px;
+  }
+}
+
+/* Telas menores que 992px */
+@media (max-width: 992px) {
+  .filtros {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .produto-card {
+    width: 45%;
+  }
+
+  footer .footer-column {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Telas menores que 768px */
+@media (max-width: 768px) {
+  .produtos {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .produto-card {
+    width: 90%;
+  }
+
+  .breadcrumbs {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  footer {
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  footer .footer-column {
+    flex: 1 1 100%;
+  }
+}
+
+/* Telas menores que 600px (celulares) */
+@media (max-width: 600px) {
+  .informacao {
+    font-size: 0.95rem;
+    padding: 16px 18px;
+  }
+
+  .produto-card h4 {
+    font-size: 20px;
+  }
+
+  .produto-card p {
+    font-size: 26px;
+  }
+
+  .produto-card small {
+    font-size: 16px;
+  }
+
+  .produto-card button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+
+  .banner-produto img {
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+
+  .carousel-title {
+    font-size: 1.2rem;
+  }
+}
+

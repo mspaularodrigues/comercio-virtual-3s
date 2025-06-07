@@ -208,80 +208,55 @@ body {
 }
 
 /* Responsividade */
-@media (min-height: 800px) {
-  .form-container {
-    padding: 2.5rem;
-  }
-  
-  .campos-cadastro {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-input {
-    padding: 16px 20px;
-  }
-  
-  .form-button {
-    padding: 16px;
-    font-size: 1.1rem;
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-height: 600px) {
-  .form-container {
-    padding: 1.5rem;
-  }
-  
-  .titulo-cadastro {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .campos-cadastro {
-    margin-bottom: 0.8rem;
-  }
-  
-  .form-input {
-    padding: 10px 16px;
-  }
-  
-  .form-button {
-    padding: 12px;
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .form-container {
-    max-width: 420px;
-  }
-}
-
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column-reverse; /* Formulário primeiro, imagem depois */
   }
-  
-  .form-section, 
+
+  .form-section,
   .image-section {
     width: 100%;
+    height: auto;
   }
-  
-  .image-section {
-    height: 25vh;
-    order: -1;
-  }
-  
+
   .form-section {
-    height: 75vh;
+    padding: 2rem 1.5rem;
   }
-  
+
   .form-container {
-    max-width: 500px;
-    padding: 1.5rem 2rem;
+    max-width: 100%;
+  }
+
+  .cadastro-imagem {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .form-button {
+    font-size: 1rem;
   }
 }
+
+@media (max-width: 480px) {
+  .titulo-cadastro {
+    font-size: 1.6rem;
+  }
+
+  .form-input {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .form-label {
+    font-size: 0.95rem;
+  }
+
+  .form-button {
+    padding: 0.8rem;
+  }
+}
+
 
 /* Animações de entrada */
 @keyframes fadeIn {

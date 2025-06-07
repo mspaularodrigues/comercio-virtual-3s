@@ -47,7 +47,7 @@
           <input type="password" id="senha" name="password_confirmation" class="form-input" placeholder="Digite sua senha" />
         </div>
 
-         {{ $errors }} 
+         <!-- {{ $errors }}  -->
 
         <button class="form-button">ENTRAR</button>
       </div>
@@ -66,15 +66,3 @@
 
 
 
-
-<!-- <form method="POST" action="{{ route('register') }}">
-    @csrf 
-
-    Nome: <input type="text" name="name">
-    Email <input type="email" name="email">
-    Senha: <input type="password" name="password">
-    Confirme a senha: <input type="password" name="password_confirmation">
-
-    <button type="submit">Registrar</button>
-
-</form> -->

@@ -9,46 +9,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.top-bar {
-    background-color: #8B0000;
-    color: white;
-    text-align: center;
-    padding: 5px;
-    font-size: 14px;
-}
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f1f1f1;
-}
-
-.logo {
-    font-weight: bold;
-}
-
-.search-bar {
-    flex: 1;
-    margin: 0 20px;
-    display: flex;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 5px;
-}
-
-.search-bar button {
-    padding: 5px 10px;
-}
-
-.nav-icons, .menu {
-    display: flex;
-    gap: 10px;
-}
-
 /* breadcrumbs */
 .breadcrumbs {
   margin: 20px;
@@ -353,6 +313,10 @@ body {
     background-color: #f5f5f5;
 }
 
+.info-table-title {
+  font-weight: 700;
+}
+
 .footer {
     background-color: #f1f1f1;
     padding: 20px;
@@ -367,4 +331,216 @@ body {
 .payments, .address {
     text-align: center;
     font-size: 12px;
+}
+
+/* Até 900px (tablets e telas intermediárias) */
+@media (max-width: 900px) {
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-bar {
+    order: 3;
+    flex: 1 1 100%;
+    margin: 10px 0 0 0;
+  }
+
+  .nav-icons, .menu {
+    flex: 1 1 100%;
+    justify-content: center;
+    order: 2;
+  }
+
+  .logo {
+    flex: 1 1 100%;
+    text-align: center;
+    order: 1;
+    margin-bottom: 10px;
+  }
+
+  .product-page {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .product-gallery {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .thumbnails {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .main-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-info {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .quantity label {
+    min-width: auto;
+    font-size: 14px;
+  }
+
+  .quantity input[type="number"] {
+    width: 50px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .btn-quantity {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .add-to-cart {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .product-details {
+    margin-top: 30px;
+    padding: 15px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .tabs button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .info-table th, .info-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Até 480px (celulares) */
+@media (max-width: 480px) {
+  .top-bar {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .search-bar {
+    margin: 8px 0 0 0;
+  }
+
+  .nav-icons, .menu {
+    gap: 8px;
+  }
+
+  .breadcrumbs {
+    margin: 15px 10px;
+    font-size: 14px;
+  }
+
+  .product-page {
+    padding: 10px 10px 20px 10px;
+  }
+
+  .product-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .thumbnails {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .thumbnails img.thumb {
+    width: 60px;
+    height: 60px;
+  }
+
+  .main-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-info {
+    padding: 12px;
+  }
+
+  .product-info h2 {
+    font-size: 22px;
+  }
+
+  .quantity label {
+    font-size: 14px;
+    min-width: auto;
+  }
+
+  .quantity input[type="number"] {
+    width: 45px;
+    height: 35px;
+    font-size: 15px;
+  }
+
+  .btn-quantity {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .add-to-cart {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  .product-details {
+    padding: 12px;
+  }
+
+  .tabs button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .info-table th, .info-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .payments, .address {
+    font-size: 10px;
+  }
 }

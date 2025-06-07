@@ -1,6 +1,11 @@
 <style>
-
-
+    :root {
+    --vermelho-principal: #8B0000;
+    --cinza-claro: #f0f0f0;
+    --cinza-texto: #555;
+    --fonte-principal: 'Inter', sans-serif;
+    --sombra-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
     /* Newsletter bar (barra antes do footer) */
 .newsletter-bar {
   background: linear-gradient(180deg, #7a1c1d, #3f0a0b);
@@ -168,6 +173,7 @@
     gap: 15px;
     margin-top: 12px;
     text-decoration: none;
+    fill: var(--cinza-texto);
 }
 
 .social-icon i {
@@ -234,18 +240,125 @@
     }
 }
 
-</style>
+/* ===========================
+   MEDIA QUERIES
+   =========================== */
 
-<!-- HTML FOOTER -->
-<!-- <div class="newsletter-bar">
-    <span> Não perca nossas novidades:</span>
-    <div class="newsletter-input">
-        <input type="email" placeholder="E-mail">
-    </div>
-    <div class="newsletter-button">
-        <button>Assine</button>
-    </div>
-</div> -->
+/* Telas médias até 900px (já existia) */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+
+  .footer-section, .logo-section {
+    flex: 1 1 100%;
+    max-width: 480px;
+    text-align: center;
+  }
+
+  .logo-section {
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Telas pequenas até 768px */
+@media (max-width: 768px) {
+  .newsletter-bar {
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .newsletter-text {
+    font-size: 16px;
+  }
+
+  .newsletter-form {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .input-wrapper {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .footer-content {
+    padding: 24px 16px;
+  }
+
+  .footer-title {
+    font-size: 16px;
+  }
+
+  .footer-info,
+  .contact-info {
+    font-size: 14px;
+  }
+
+  .social-icon i {
+    font-size: 20px;
+  }
+}
+
+/* Telas muito pequenas até 480px */
+@media (max-width: 480px) {
+  .newsletter-text {
+    font-size: 15px;
+  }
+
+  .input-wrapper input {
+    font-size: 13px;
+    padding: 10px 40px 10px 14px;
+  }
+
+  .newsletter-form button {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+
+  .footer-title {
+    font-size: 15px;
+  }
+
+  .footer-info {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    padding: 16px;
+  }
+
+  .footer-note {
+    font-size: 11px;
+  }
+
+  .social-icon i {
+    font-size: 18px;
+  }
+
+  .payment-banner {
+    max-width: 100%;
+  }
+}
+
+
+</style>
 
 <div class="newsletter-bar">
   <span class="newsletter-text">Não perca nossas novidades:</span>
@@ -253,7 +366,7 @@
   <form class="newsletter-form">
     <div class="input-wrapper">
       <input type="email" placeholder="Digite seu e-mail" required>
-      <span class="input-icon">📩</span>
+      <!-- <span class="input-icon">📩</span> -->
     </div>
     <button type="submit">Assinar</button>
   </form>

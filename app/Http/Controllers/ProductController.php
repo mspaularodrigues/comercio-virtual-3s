@@ -46,7 +46,7 @@ class ProductController extends Controller
     $category = $product->category;
     $breadcrumbs = [
         ['label' => 'Home', 'url' => route('dashboard')], 
-        ['label' => $category->name ?? 'Categoria', 'url' => route('categories.show', $category)],
+        ['label' => $category->name ?? 'Categoria', 'url' => route('categories.show', ['category' => $category->slug])],
         ['label' => $product->name, 'url' => ''] 
     ];
     $produtosSimilares = Product::where('category_id', $product->category_id)

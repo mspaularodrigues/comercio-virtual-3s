@@ -304,6 +304,48 @@ body {
   }
 }
 
+
+
+@media (max-width: 1366px) {
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    max-width: 380px;
+    padding: 2rem 1rem;
+  }
+
+  .form-container h1.titulo-cadastro {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-input {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 20px;
+  }
+
+  .campos-cadastro {
+    margin-bottom: 1rem;
+  }
+
+  .cadastro-link {
+    font-size: 0.95rem;
+  }
+}
+
+
 /* Melhorias de acessibilidade */
 :focus {
   outline: 2px solid var(--primary);
