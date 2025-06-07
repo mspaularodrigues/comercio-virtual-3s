@@ -171,9 +171,6 @@
 </style>
 
 <div id="carouselCards" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true">
-  <div class="carousel-title">
-    <h4>MAIS VENDIDOS</h4>
-  </div>
   <div class="carousel-inner">
     @foreach($maisVendidos as $index => $product)
       <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">

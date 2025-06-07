@@ -86,7 +86,7 @@
 <div id="carouselCards" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-title">
   <h4 style="font-family: 'Inter', sans-serif;">MAIS VENDIDOS</h4>
-<p class="testimonial-text">
+<p class="mais-vendidos-p">
   Veja nossos produtos mais vendidos e conheça um pouco de sua composição. 
   Aproveite para descobrir os diferenciais de cada produto e encontrar  
   <strong> o que mais combina com você!</strong>

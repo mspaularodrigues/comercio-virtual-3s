@@ -16,6 +16,7 @@
   justify-content: center;
   gap: 16px;
   font-family: 'Segoe UI', sans-serif;
+  margin-top: 50px;
 }
 
 
