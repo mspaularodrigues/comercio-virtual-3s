@@ -25,6 +25,7 @@
 html, body {
   height: 100%;
   overflow: hidden;
+  
 }
 
 body {
@@ -174,8 +175,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-
-
 /* Seção da imagem */
 .image-section {
   width: 50%;
@@ -208,6 +207,18 @@ body {
 }
 
 /* Responsividade */
+@media (max-width: 1366px) {
+  .titulo-cadastro {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    display: block;
+    text-align: center;
+    overflow: visible;
+    white-space: normal;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column-reverse; /* Formulário primeiro, imagem depois */

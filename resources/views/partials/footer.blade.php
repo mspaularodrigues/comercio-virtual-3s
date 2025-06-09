@@ -19,7 +19,6 @@
   margin-top: 50px;
 }
 
-
 .newsletter-text {
   font-size: 18px;
   font-weight: 600;
@@ -361,17 +360,29 @@
 
 </style>
 
+<script>
+  @if(session('success'))
+    alert("{{ session('success') }}");
+  @endif
+
+  @if($errors->any())
+    alert("{{ $errors->first() }}");
+  @endif
+</script>
+
+
 <div class="newsletter-bar">
   <span class="newsletter-text">Não perca nossas novidades:</span>
 
-  <form class="newsletter-form">
+  <form class="newsletter-form" method="POST" action="{{ route('newsletter.subscribe') }}">
+    @csrf
     <div class="input-wrapper">
-      <input type="email" placeholder="Digite seu e-mail" required>
-      <!-- <span class="input-icon">📩</span> -->
+      <input type="email" name="email" placeholder="Digite seu e-mail" required>
     </div>
     <button type="submit">Assinar</button>
   </form>
 </div>
+
 
 
    <!-- Rodapé -->
@@ -442,3 +453,4 @@
       Todas as mídias aqui veiculadas são de propriedade da Suplemax Suplementos de Academia. É proibida a utilização parcial ou total sem autorização prévia, sujeita a penalidade.
     </div>
   </div>
+

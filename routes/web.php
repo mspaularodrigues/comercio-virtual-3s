@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NewsletterController;
 
 Route::get('/', [DashboardController::class, 'show'])
     ->middleware(['auth', 'verified'])
@@ -41,7 +42,7 @@ Route::delete('/cart/{cart}', [CartController::class, 'destroy']);
 Route::post('/cart/{product}', [CartController::class, 'store']);
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
-
+Route::post('/newsletter', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 
 require __DIR__.'/auth.php';
